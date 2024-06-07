@@ -3,7 +3,8 @@ const { Controller } = require('egg');
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hi, egg';
+    const result = await this.app.mysql.insert('cate', { name: 'CSS' });
+    ctx.body = result;
   }
 }
 
