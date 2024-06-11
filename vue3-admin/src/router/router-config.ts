@@ -9,7 +9,19 @@ export const constantRouterMap = [
       {
         path: '',
         component: () => import('../views/HomeView.vue'),
-        meta: { title: '首页', icon: 'House' }
+        meta: { title: '首页' }
+      }
+    ]
+  },
+  {
+    path: '/cate',
+    name: 'Cate',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('../views/cate/index.vue'),
+        meta: { title: '分类' }
       }
     ]
   },
@@ -21,7 +33,7 @@ export const constantRouterMap = [
       {
         path: '',
         component: () => import('../views/AboutView.vue'),
-        meta: { title: '关于', icon: 'home' }
+        meta: { title: '关于' }
       }
     ]
   }

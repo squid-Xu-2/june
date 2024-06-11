@@ -31,8 +31,8 @@ import { RouterView } from 'vue-router'
 <style scoped>
 .aside {
     width: 220px;
-    height: 100vh;
-    background-color: blue;
+    min-height: 100vh;
+    /* background-color: blue; */
 }
 
 .header {
@@ -43,6 +43,6 @@ import { RouterView } from 'vue-router'
 }
 
 .container {
-    background-color: skyblue;
+    background-color: #f2f3f5;
 }
 </style>
