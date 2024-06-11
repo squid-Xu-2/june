@@ -7,3 +7,11 @@ export function cateAdd(data: any) {
     data
   })
 }
+
+export function cateList(params: any) {
+  return axios({
+    url: '/cate/list',
+    method: 'get',
+    params
+  })
+}

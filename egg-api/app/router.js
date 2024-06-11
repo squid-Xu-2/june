@@ -6,4 +6,5 @@ module.exports = app => {
   router.get('/', controller.home.index);
 
   router.post('/cate/add', controller.cate.create);
+  router.get('/cate/list', controller.cate.list);
 };

@@ -5,7 +5,8 @@
                 <el-input v-model="ruleForm.title" placeholder="请输入名称" />
             </el-form-item>
             <el-form-item label="排序" prop="sort">
-                <el-input-number v-model="ruleForm.sort" placeholder="请输入排序" :min="1" :max="1000" />
+                <el-input-number v-model="ruleForm.sort" placeholder="请输入排序" :min="1" :max="1000"
+                    style="width: 100%;" />
             </el-form-item>
         </el-form>
         <template #footer>
@@ -23,7 +24,7 @@
 import { cateAdd } from '@/api/cate'
 const visible = defineModel()
 import { reactive, ref } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 
 interface RuleForm {
     title: string
@@ -53,9 +54,13 @@ const submitForm = async () => {
         if (valid) {
             console.log('submit!')
             try {
-                let res = await cateAdd(ruleForm)
-                console.log(res);
-
+                await cateAdd(ruleForm)
+                ElMessage({
+                    message: '添加成功',
+                    type: 'success',
+                    plain: true
+                })
+                cancel()
             } catch (error) {
                 console.log(error);
             }

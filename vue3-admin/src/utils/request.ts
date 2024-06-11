@@ -16,7 +16,12 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   (response) => {
-    return response.data
+    const result = response.data
+    if (result.code === 200) {
+      return result
+    }
+
+    return Promise.reject(result.msg)
   },
   (err) => {
     return Promise.reject(err)
